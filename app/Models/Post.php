@@ -12,6 +12,8 @@ class Post extends Model
 
     protected $guarded = [];
 
+    // title, slug, short_description, content, meta_description, meta_title, meta_keywords, published, author, editor
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);

@@ -12,6 +12,8 @@ class Category extends Model
 
     protected $guarded = [];
 
+    // name, slug, parent_id, published, author, editor
+
     public function posts()
     {
         return $this->belongsToMany(Post::class);
