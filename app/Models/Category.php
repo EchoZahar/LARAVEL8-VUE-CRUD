@@ -20,7 +20,6 @@ class Category extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'author');
-
     }
 
     public function editor()
