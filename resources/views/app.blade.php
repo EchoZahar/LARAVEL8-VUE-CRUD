@@ -26,7 +26,7 @@
                 <a href="mailto:echo.zahar@gmail.com">Echo Zahar</a>
             </span>
              <ul class="navbar-nav ml-auto">
-                 <li class="nav-item active">
+                 <li class="nav-item">
                      <router-link class="nav-link" :to="{ name: 'categories.index' }">categories<span class="sr-only"></span></router-link>
                  </li>
                  <li class="nav-item">

@@ -9,6 +9,6 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        return Category::all();
+        return Category::with('posts:id,title,slug,short_description')->get();
     }
 }
