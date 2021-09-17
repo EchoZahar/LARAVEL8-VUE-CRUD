@@ -38,10 +38,20 @@
                 <tbody>
                 <tr v-for="post in posts" :key="post.id">
                     <th scope="row">{{ post.id }}</th>
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.short_description }}</td>
+                    <td>{{ post.title }} <br>
+                        <div v-for="cat in post.categories" :key="cat.slug">
+                        <span>Cat: <a href="#">{{ cat.name }}</a></span> <br>
+                        </div>
+
+                    </td>
+                    <td>{{ post.short_description }} <br>
+                        <div class="text-right">
+                        author: <a href="#" >{{ post.author.name }}</a><br>
+                        date: {{ post.created_at }}
+                        </div>
+                    </td>
                     <td><button class="btn btn-primary">edit</button>
-                        <button class="btn btn-danger">delete</button>
+                        <button class="btn btn-danger">del</button>
                     </td>
                 </tr>
                 </tbody>
@@ -51,7 +61,9 @@
                     <li :class="{disabled: !pagination.prev_page_url}" class="page-item">
                         <a @click.prevent="getAllPosts(pagination.prev_page_url)" class="page-link" href="#">Previous</a>
                     </li>
-                    <li class="page-item disabled"><a class="page-link" href="#">page: {{ pagination.current_page }} on {{ pagination.last_page}}</a></li>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">page: {{ pagination.current_page }} on {{ pagination.last_page}}</a>
+                    </li>
                     <li :class="{disabled: !pagination.next_page_url}" class="page-item">
                         <a @click.prevent="getAllPosts(pagination.next_page_url)" class="page-link" href="#">Next</a>
                     </li>
@@ -74,6 +86,7 @@
                    published: '',
                    author: '',
                    editor: '',
+                   created_at: '',
                },
                post_id: '',
                pagination: {},
